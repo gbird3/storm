@@ -19,4 +19,11 @@ spec:
       - name: storm
         image: storm:test
         imagePullPolicy: IfNotPresent
+        env:
+          - name: STORM_INTERVAL
+            value: '10000'
+          - name: STORM_NAMESPACE
+            value: 'default'
+          - name: DRY_RUN
+            value: 'false'
 

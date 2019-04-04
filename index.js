@@ -58,7 +58,7 @@ async function getNsPodNames(namespace) {
 async function deleteNsPod(pod, namespace, dryRun) {
   let response;
 
-  if(dryRun) {
+  if(dryRun === 'true') {
     response = await k8sApi.deleteNamespacedPod(pod, namespace, undefined, undefined, 'All');
     console.log(`Would have deleted ${pod}`);
   } else {
