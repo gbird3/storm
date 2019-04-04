@@ -17,7 +17,7 @@ Storm accepts different environment variables:
 
 ## Next Steps
 
-1. Kubernetes files for running in the cluster
+~~1. Kubernetes files for running in the cluster~~
 1. Allow user to specify multiple (or all) namespaces
 1. Allow user to exclude certain pods
 1. Allow user to specify "random interval"
