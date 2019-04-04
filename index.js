@@ -6,10 +6,7 @@ const dryRun = process.env.DRY_RUN || 'true';
 
 
 const kc = new k8s.KubeConfig();
-// TODO: figure out how to run this in the cluster
 kc.loadFromCluster();
-// kc.loadFromDefault();
-
 
 const k8sApi = kc.makeApiClient(k8s.Core_v1Api);
 
