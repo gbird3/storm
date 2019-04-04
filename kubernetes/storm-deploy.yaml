@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storm
+  labels:
+    app: storm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storm
+  template:
+    metadata:
+      labels:
+        app: storm
+    spec:
+      serviceAccount: storm
+      containers:
+      - name: storm
+        image: storm:test
+        imagePullPolicy: IfNotPresent
+

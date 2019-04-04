@@ -7,8 +7,8 @@ const dryRun = process.env.DRY_RUN || 'true';
 
 const kc = new k8s.KubeConfig();
 // TODO: figure out how to run this in the cluster
-/* kc.loadFromCluster(); */
-kc.loadFromDefault();
+kc.loadFromCluster();
+// kc.loadFromDefault();
 
 
 const k8sApi = kc.makeApiClient(k8s.Core_v1Api);
@@ -36,13 +36,17 @@ setInterval(main, stormInterval);
  */
 async function getNsPodNames(namespace) {
   let pods = [];
-  
-  const rawPods = await k8sApi.listNamespacedPod(namespace);
-  const items = rawPods.body.items;
+  try {
+    const rawPods = await k8sApi.listNamespacedPod(namespace);
+    const items = rawPods.body.items;
 
-  for (let item in items) {
-    pods.push(items[item].metadata.name);
-  };
+    for (let item in items) {
+      pods.push(items[item].metadata.name);
+    };
+  }
+  catch(error) {
+    console.error(error);
+  }
 
   return pods
 }

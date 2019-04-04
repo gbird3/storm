@@ -4,7 +4,8 @@
   "description": "Chaos monkey for k8s clusters.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "author": "gregbird12@gmail.com",
   "license": "ISC",

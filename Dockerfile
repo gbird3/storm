@@ -1,12 +1,13 @@
 FROM node:8
 
-WORKDIR /usr/src/app
+USER node
+
+WORKDIR /home/node
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm i --production
 
 COPY . .
 
-EXPOSE 8080
-
+CMD ["npm", "start"]
